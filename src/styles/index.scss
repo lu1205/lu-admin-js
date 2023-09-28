@@ -1,46 +1,56 @@
-@import './base.scss';
+@import './base';
 
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
+
 :focus-visible {
   outline: none;
 }
+
 .app-container {
+  display: flex;
   width: 100vw;
   height: 100vh;
-  display: flex;
 }
+
 .app-slide {
   width: $app-menu-open-width;
   background-color: #545c64;
 }
+
 .app-main {
   flex: 1;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
 }
+
 .app-top {
   min-height: fit-content;
 }
+
 .app-header {
   height: $app-header-height;
 }
+
 .app-tab-box {
   display: flex;
 }
+
 .app-tabs {
-  width: 100%;
-  flex: 1;
-  height: $app-tabs-height;
-  line-height: $app-tabs-height;
   display: flex;
+  width: 100%;
+  height: $app-tabs-height;
+  flex: 1;
+  line-height: $app-tabs-height;
 }
+
 .app-content {
   flex: 1;
 }
+
 .app-footer {
   height: $app-footer-height;
   line-height: $app-footer-height;
@@ -49,9 +59,9 @@
 }
 
 .el-scrollbar__view {
-  height: 100%!important;
+  height: 100% !important;
 }
 
 .el-input {
-  width: 250px!important;
+  width: 250px !important;
 }

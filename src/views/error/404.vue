@@ -10,10 +10,10 @@ import Error404 from '@/assets/svg/404.svg'
 
 <style scoped lang="scss">
 .out-box {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 }
 </style>

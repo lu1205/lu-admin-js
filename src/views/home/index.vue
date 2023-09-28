@@ -59,10 +59,11 @@ onMounted(() => {
   padding: 10px 0;
   box-sizing: border-box;
 }
+
 .content {
+  float: right;
+  overflow: auto;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  float: right;
 }
 </style>

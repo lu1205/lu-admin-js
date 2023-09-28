@@ -38,8 +38,8 @@ let menuList = formatRoute(useRouteStore().getRouteList())
 import { useTabsStore } from '@/store/tabs'
 import { useCachePagesStore } from '@/store/cachePages'
 
-const tabsArr = computed(()=>{
-    return useTabsStore().getTabs()
+const tabsArr = computed(() => {
+  return useTabsStore().getTabs()
 })
 const selectPath = (indexPath) => {
   const allRoutes = useRouteStore().getRouteList() || []

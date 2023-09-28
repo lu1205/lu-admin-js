@@ -8,8 +8,8 @@ export const useSettingStore = defineStore(
       slideWidth: 200
     })
     const collapse = ref(false)
-      const loading = ref(false)
-      const flush = ref(false)
+    const loading = ref(false)
+    const flush = ref(false)
 
     function setCollapse(flag) {
       collapse.value = flag
@@ -30,12 +30,12 @@ export const useSettingStore = defineStore(
       return loading.value
     }
 
-      const setFlush = (flag)=> {
-          flush.value = flag
-      }
-      const getFlush = ()=> {
-          return flush.value
-      }
+    const setFlush = (flag) => {
+      flush.value = flag
+    }
+    const getFlush = () => {
+      return flush.value
+    }
 
     return {
       collapse,

@@ -35,7 +35,7 @@ const { collapse } = storeToRefs(useSettingStore())
 <template>
   <div style="display: flex; align-items: center">
     <div
-      style="margin-right: 16px; height: 20px; display: flex; align-items: center; cursor: pointer"
+      style="display: flex; align-items: center; margin-right: 16px; height: 20px; cursor: pointer"
       @click="() => useSettingStore().changeCollapse()"
     >
       <el-icon size="20">

@@ -6,8 +6,20 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "build-check": "run-p type-check build-only",
+    "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
+    "lint:eslint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .eslintignore",
+    "lint:prettier": "prettier --write \"src/**/*.{cjs,js,ts,json,tsx,css,scss,less,vue,html,md}\" --ignore-path .prettierignore",
+    "lint:stylelint": "stylelint \"./**/*.{css,less,scss,vue,html}\" --fix  --ignore-path .stylelintignore",
+    "preinstall": "node src/scripts/preinstall.js",
+    "lint-staged": "lint-staged -c ./.husky/lint-staged.config.js",
+    "lint:pretty": "pretty-quick --staged",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   },
   "dependencies": {
     "axios": "^1.5.0",
@@ -16,24 +28,41 @@
     "vue-router": "^4.2.4"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
     "@element-plus/icons-vue": "^2.1.0",
     "@rushstack/eslint-patch": "^1.3.2",
     "@vitejs/plugin-vue": "^4.3.1",
     "@vitejs/plugin-vue-jsx": "^3.0.2",
     "@vue/eslint-config-prettier": "^8.0.0",
     "autoprefixer": "^10.4.15",
+    "dayjs": "^1.11.10",
     "element-plus": "^2.3.12",
     "eslint": "^8.46.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-vue": "^9.16.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
     "mockjs": "^1.1.0",
+    "npm-run-all": "^4.1.5",
+    "nprogress": "^0.2.0",
     "pinia-plugin-persistedstate": "^3.2.0",
     "postcss": "^8.4.29",
+    "postcss-html": "^1.5.0",
     "postcss-scss": "^4.0.8",
     "prettier": "^3.0.0",
     "sass": "^1.66.1",
-    "sass-loader": "^13.3.2",
+    "stylelint": "^15.10.3",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-standard-scss": "^11.0.0",
+    "stylelint-config-standard-vue": "^1.0.0",
+    "stylelint-order": "^6.0.3",
+    "unplugin-auto-import": "^0.16.6",
+    "unplugin-icons": "^0.17.0",
+    "unplugin-vue-components": "^0.25.2",
     "vite": "^4.4.9",
-    "vite-plugin-mock": "^3.0.0"
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-mock": "^2.9.6"
   },
   "browserslist": [
     "last 2 version",

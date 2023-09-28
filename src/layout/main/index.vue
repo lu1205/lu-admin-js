@@ -1,12 +1,12 @@
 <script setup>
 import { useCachePagesStore } from '@/store/cachePages'
 import { computed } from 'vue'
-import {useSettingStore} from "@/store/setting";
-import {storeToRefs} from "pinia";
+import { useSettingStore } from '@/store/setting'
+import { storeToRefs } from 'pinia'
 const keepAliveList = computed(() => {
   return useCachePagesStore().getCachePages()
 })
-const {flush} = storeToRefs(useSettingStore())
+const { flush } = storeToRefs(useSettingStore())
 </script>
 
 <template>

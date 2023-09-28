@@ -1,56 +1,28 @@
 <script setup>
 import { Menu, Close, FolderRemove, FolderDelete } from '@element-plus/icons-vue'
 
-import {computed, ref} from 'vue'
-import {useTabsStore} from "@/store/tabs";
-import {useRoute, useRouter} from "vue-router";
+import { computed } from 'vue'
+import { useTabsStore } from '@/store/tabs'
+import { useRoute, useRouter } from 'vue-router'
 const router = useRouter()
-// const tabList = ref([
-//   { path: '/1', name: '标签1', icon: 'menu' },
-//   { path: '/2', name: '标签2' },
-//   { path: '/3', name: '标签3' },
-//   { path: '/4', name: '标签4' },
-//   { path: '/5', name: '标签5' },
-//   { path: '/6', name: '标签6' },
-//   { path: '/7', name: '标签7' },
-//   { path: '/8', name: '标签8' },
-//   { path: '/9', name: '标签9' },
-//   { path: '/10', name: '标签10' },
-//   { path: '/11', name: '标签11' },
-//   { path: '/12', name: '标签12' },
-//   { path: '/13', name: '标签13' },
-//   { path: '/14', name: '标签14' }
-// ])
-const tabList = computed(()=>{
-    return useTabsStore().getTabs()
+
+const tabList = computed(() => {
+  return useTabsStore().getTabs()
 })
-const currentPath = computed(()=>{
-    return useRoute().path
+const currentPath = computed(() => {
+  return useRoute().path
 })
 const delTag = (path) => {
-  /*const index = tabList.value.findIndex((item) => item.path === path)
-  tabList.value.splice(index, 1)
-  if (currentPath.value === path) {
-    if (tabList.value[index]?.path) {
-      currentPath.value = tabList.value[index].path
-    } else {
-      currentPath.value = tabList.value[index - 1]?.path || '/'
-    }
-  }*/
-    useTabsStore().removeTab(path)
+  useTabsStore().removeTab(path)
 }
 const delOtherTag = () => {
-  // const val = tabList.value.find((item) => item.path === currentPath.value)
-  // tabList.value = [val]
-    useTabsStore().removeOtherTab()
+  useTabsStore().removeOtherTab()
 }
 const delAllTag = () => {
-  // tabList.value = []
-    useTabsStore().resetTab()
+  useTabsStore().resetTab()
 }
 const handleClick = (path) => {
-  // currentPath.value = path
-    router.push(path)
+  router.push(path)
 }
 const handleClose = (type) => {
   switch (type) {
@@ -79,8 +51,10 @@ const handleClose = (type) => {
               @click="handleClick(item.path)"
               @close="delTag(item.path)"
             >
-              <div style="display: flex; align-items: center; justify-content: center">
-                <el-icon v-if="item.meta.icon" size="16" style="margin-right: 4px"><Menu /></el-icon>
+              <div style="display: flex; justify-content: center; align-items: center">
+                <el-icon v-if="item.meta.icon" size="16" style="margin-right: 4px"
+                  ><Menu
+                /></el-icon>
                 <span>{{ item.meta.title }}</span>
               </div>
             </el-tag>
@@ -89,7 +63,7 @@ const handleClose = (type) => {
       </el-tabs>
     </div>
 
-    <div style="width: 24px; padding: 0 16px; display: flex; align-items: center">
+    <div style="display: flex; align-items: center; padding: 0 16px; width: 24px">
       <el-dropdown>
         <div class="more">
           <el-icon size="20"><Menu /></el-icon>
@@ -122,33 +96,42 @@ const handleClose = (type) => {
 </template>
 
 <style scoped lang="scss">
-@import '../../styles/base.scss';
+@import url('../../styles/base');
+
 :deep(.el-tabs__content) {
   display: none !important;
 }
+
 :deep(.el-tabs__header) {
   background-color: #fff;
 }
+
 :deep(.el-tabs__nav) {
   border: none !important;
 }
+
 :deep(.el-tabs__item) {
-  border: none !important;
   padding: 0 8px !important;
+  border: none !important;
 }
+
 .dropdown-item {
   display: flex;
   align-items: center;
 }
+
 :deep(.el-tabs__nav-prev) {
   line-height: $app-tabs-height;
 }
+
 :deep(.el-tabs__nav-next) {
   line-height: $app-tabs-height;
 }
+
 .more {
   transition: transform 0.5s;
 }
+
 .more:hover {
   transform: rotate(90deg);
 }

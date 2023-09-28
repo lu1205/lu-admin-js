@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import {ref} from "vue";
+import { ref } from 'vue'
 
 export const useRouteStore = defineStore('userRoute', () => {
   const routeList = ref([])
@@ -20,7 +20,7 @@ export const useRouteStore = defineStore('userRoute', () => {
     firstRoute.value = val
   }
 
-  const getFirstRoute = ()=> {
+  const getFirstRoute = () => {
     return firstRoute.value
   }
 
