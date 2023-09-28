@@ -96,7 +96,7 @@ const handleClose = (type) => {
 </template>
 
 <style scoped lang="scss">
-@import url('../../styles/base');
+@import '../../styles/base';
 
 :deep(.el-tabs__content) {
   display: none !important;
